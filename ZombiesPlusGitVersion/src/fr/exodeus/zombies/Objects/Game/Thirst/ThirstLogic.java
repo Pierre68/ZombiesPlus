@@ -1,9 +1,7 @@
 package fr.exodeus.zombies.Objects.Game.Thirst;
 
-import fr.exodeus.zombies.Common.MainZombies;
-import fr.exodeus.zombies.Common.Reference;
-import fr.exodeus.zombies.Common.Saver.Network.NetworkHandler;
-import fr.exodeus.zombies.Common.Saver.Network.PacketUpdateClient;
+import fr.exodeus.zombies.Core.MainZombies;
+import fr.exodeus.zombies.Core.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,8 +18,8 @@ public class ThirstLogic {
 
 	public EntityPlayer player;
 
-	public float thirstLevel;
-	public float thirstSaturation;
+	public int thirstLevel;
+	public int thirstSaturation;
 	public DamageSource thirstSource = new DamageThirst();
 
 	public boolean isPoisoned;
@@ -44,7 +42,7 @@ public class ThirstLogic {
 		if (thirstExhaustion > 5f) {
 			thirstExhaustion = 0f;
 			if (thirstSaturation > 0f) {
-				thirstSaturation = Math.max(thirstSaturation - 1f, 0);
+				thirstSaturation = Math.max(thirstSaturation - 1, 0);
 			} else {
 				thirstLevel = Math.max(thirstLevel - 1, 0);
 			}
@@ -53,8 +51,6 @@ public class ThirstLogic {
 		this.computeExhaustion(player);
 
 		this.writeData();
-
-		NetworkHandler.networkWrapper.sendTo(new PacketUpdateClient(this), (EntityPlayerMP) player);//passer les info au client
 
 		player.addChatComponentMessage(
 				new TextComponentString(thirstExhaustion + " / " + thirstSaturation + " / " + thirstLevel));
@@ -68,43 +64,11 @@ public class ThirstLogic {
 	}
 
 	public void writeData() {
-		if (player != null) {
-			NBTTagCompound oldNBT = player.getEntityData();
-			NBTTagCompound nbt = oldNBT.getCompoundTag("ZombiesPlus");
-			
 
-			nbt.setFloat("level", thirstLevel);
-			nbt.setFloat("saturation", thirstSaturation);
-
-			nbt.setBoolean("poisoned", isPoisoned);
-			
-			if (!oldNBT.hasKey("ZombiesPlus")) {
-				oldNBT.setTag("ZombiesPlus", nbt);
-			}//pour passer les info au client
-			
-			//======A Utiliser
-			
-			player.getCapability(MainZombies.ZOMBIESPLUS_CAP, null).setStats((int) thirstLevel);
-			
-			
-
-		}
 	}
 
 	public void readData() {
-		if (player != null) {
-			/*NBTTagCompound oldnbt = player.getEntityData();
-			NBTTagCompound nbt = oldnbt.getCompoundTag("ZombiesPlus");
-			if (nbt.hasKey("level")) {
-				thirstLevel = nbt.getFloat("level");
-				thirstSaturation = nbt.getFloat("saturation");
 
-				isPoisoned = nbt.getBoolean("poisoned");
-			}*/
-			
-			this.thirstLevel = player.getCapability(MainZombies.ZOMBIESPLUS_CAP, null).thirstLevel;
-			
-		}
 	}
 
 	public static class DamageThirst extends DamageSource {
@@ -179,9 +143,7 @@ public class ThirstLogic {
 
 	private int movementSpeed() {
 
-		// marche pas pck update plus apres 1ere mort
-
-		return 70;
+		return 70; // deal with it later
 
 	}
 
@@ -189,8 +151,5 @@ public class ThirstLogic {
 
 		return !player.worldObj.isDaytime();
 	}
-	
-	
-	
-	
+
 }

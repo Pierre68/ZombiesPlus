@@ -1,6 +1,6 @@
 package fr.exodeus.zombies.Objects.Items.Effects;
 
-import fr.exodeus.zombies.Common.MainZombies;
+import fr.exodeus.zombies.Core.MainZombies;
 import fr.exodeus.zombies.Objects.Potion.Bonebreak;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

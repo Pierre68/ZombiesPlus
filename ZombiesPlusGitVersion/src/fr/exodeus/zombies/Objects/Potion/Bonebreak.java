@@ -3,7 +3,7 @@ package fr.exodeus.zombies.Objects.Potion;
 import java.util.HashMap;
 import java.util.Random;
 
-import fr.exodeus.zombies.Common.MainZombies;
+import fr.exodeus.zombies.Core.MainZombies;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

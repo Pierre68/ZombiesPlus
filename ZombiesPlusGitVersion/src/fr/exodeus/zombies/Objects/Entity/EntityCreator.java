@@ -1,7 +1,7 @@
 package fr.exodeus.zombies.Objects.Entity;
 
-import fr.exodeus.zombies.Common.MainZombies;
-import fr.exodeus.zombies.Common.Reference;
+import fr.exodeus.zombies.Core.MainZombies;
+import fr.exodeus.zombies.Core.Reference;
 import fr.exodeus.zombies.Objects.Entity.Entities.ZombieButcher;
 import fr.exodeus.zombies.Objects.Entity.Entities.ZombieCivil;
 import fr.exodeus.zombies.Objects.Entity.Entities.ZombieCrawler;

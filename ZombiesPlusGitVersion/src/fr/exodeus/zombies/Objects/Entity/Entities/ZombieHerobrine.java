@@ -1,6 +1,6 @@
 package fr.exodeus.zombies.Objects.Entity.Entities;
 
-import fr.exodeus.zombies.Common.MainZombies;
+import fr.exodeus.zombies.Core.MainZombies;
 import fr.exodeus.zombies.Objects.Entity.Render.ZombieButcherRender;
 import fr.exodeus.zombies.Objects.Entity.Render.ZombieHerobrineRender;
 import fr.exodeus.zombies.Objects.Items.IronNugget;

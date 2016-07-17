@@ -1,6 +1,6 @@
 package fr.exodeus.zombies.Objects.Entity.Render;
 
-import fr.exodeus.zombies.Common.Reference;
+import fr.exodeus.zombies.Core.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;

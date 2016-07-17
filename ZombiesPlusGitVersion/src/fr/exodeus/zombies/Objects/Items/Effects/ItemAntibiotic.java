@@ -1,7 +1,7 @@
 package fr.exodeus.zombies.Objects.Items.Effects;
 
-import fr.exodeus.zombies.Common.MainZombies;
-import fr.exodeus.zombies.Common.Reference;
+import fr.exodeus.zombies.Core.MainZombies;
+import fr.exodeus.zombies.Core.Reference;
 import fr.exodeus.zombies.Objects.Potion.Infection;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
