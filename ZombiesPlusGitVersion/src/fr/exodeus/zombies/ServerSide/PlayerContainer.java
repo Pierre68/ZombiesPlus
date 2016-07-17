@@ -67,7 +67,7 @@ public class PlayerContainer {
 	// ========================================================================================
 	// Capabilities stuff
 
-	
+	//TODO the day I understand it
 
 
 }
